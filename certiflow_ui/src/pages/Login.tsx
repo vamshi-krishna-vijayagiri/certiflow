@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   Eye,
   EyeOff,
@@ -24,6 +24,9 @@ interface LoginResponse {
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const registrationSuccess = location.state?.registrationSuccess;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -135,6 +138,12 @@ function Login() {
             <p>Enter your credentials to access your workspace.</p>
           </div>
 
+          {registrationSuccess && (
+            <div className="login-success" role="status">
+              {registrationSuccess}
+            </div>
+          )}
+
           <form onSubmit={handleLogin}>
             <div className="login-input-group">
               <label htmlFor="email">Email Address</label>
@@ -199,6 +208,12 @@ function Login() {
             <span>
               Your account is protected with secure authentication.
             </span>
+          </div>
+
+          {/* Registration Link */}
+          <div className="register-login-link">
+            Don't have an account?{" "}
+            <Link to="/register">Register your Training Centre</Link>
           </div>
 
           <div className="login-bottom">

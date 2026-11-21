@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import BatchUpload from "./pages/BatchUpload";
 import VerifyCertificate from "./pages/VerifyCertificate";
@@ -12,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-
+        <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyCertificate />} />
 
         <Route
@@ -34,7 +35,6 @@ function App() {
         />
 
         <Route path="/" element={<Navigate to="/login" replace />} />
-
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

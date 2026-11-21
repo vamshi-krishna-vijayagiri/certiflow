@@ -910,3 +910,153 @@ tr:last-child td {
     flex-direction: column;
   }
 }
+
+/* Registration Page */
+
+.register-login-link {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.register-login-link a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.register-login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  min-height: 76px;
+  padding: 0 5%;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(23, 36, 58, 0.04);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+}
+
+.navbar-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.navbar-user-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.navbar-user-role {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.navbar-logout {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.navbar-logout:hover {
+  background: #fff1f1;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 14px 4%;
+    gap: 15px;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-user-info {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .navbar-links {
+    gap: 3px;
+  }
+}
