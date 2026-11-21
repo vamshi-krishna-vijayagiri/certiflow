@@ -37,14 +37,26 @@ model User {
 }
 
 model Batch {
-  id                   String      @id @default(uuid())
-  batchNumber          String      @unique
-  trainingCentreName   String
-  candidateCount       Int
-  status               BatchStatus @default(DRAFT)
-  createdAt            DateTime    @default(now())
-  updatedAt            DateTime    @updatedAt
+  id                 String      @id @default(uuid())
+  batchNumber        String      @unique
+  trainingCentreName String
+  candidateCount     Int
+  status             BatchStatus @default(DRAFT)
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
 
-  uploadedById         String
-  uploadedBy           User        @relation(fields: [uploadedById], references: [id])
+  uploadedById       String
+  uploadedBy         User        @relation(fields: [uploadedById], references: [id])
+
+  candidates         Candidate[]
+}
+
+model Candidate {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  batchId   String
+  batch     Batch    @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
 }
